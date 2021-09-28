@@ -84,7 +84,7 @@ function App() {
   return (
     <>
     {/* <Router> */}
-      <Navbar title="TextUtils2" aboutText="About Us" mode={mode} toggleMode={funcDarkBtn} funcRedBtn={funcRedBtn}/>
+      <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={funcDarkBtn} funcRedBtn={funcRedBtn}/>
       <Alert alert={alert}/>
       <div className="container">
       {/* <Switch> */}
