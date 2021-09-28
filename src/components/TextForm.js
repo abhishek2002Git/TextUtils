@@ -39,15 +39,14 @@ export default function TextForm(props) {
           className="form-control"
           value = {text}
           onChange = {handleOnChange} // 'handleOnChange()' will be called when value of textarea will be changed
-          id="myBox"
+          id="txtArea"
           rows="8"
-          style={{backgroundColor: props.mode==='dark'?'black':'white', color: props.mode==='dark'?'white':'black'}}
         ></textarea>
       </div>
-      <button className="btn btn-primary" onClick={handleUpClick}>ConvertToUppercase</button>
-      <button className="btn btn-primary mx-2" onClick={handleLowClick}>ConvertToLowercase</button>
-      <button className="btn btn-primary mx-2" onClick={handleTitClick}>Title Case</button>
-      <button className="btn btn-primary mx-2" onClick={handleClrClick}>Clear</button>
+      <button className="btn btn-primary buttons" onClick={handleUpClick}>ConvertToUppercase</button>
+      <button className="btn btn-primary mx-2 buttons" onClick={handleLowClick}>ConvertToLowercase</button>
+      <button className="btn btn-primary mx-2 buttons" onClick={handleTitClick}>Title Case</button>
+      <button className="btn btn-primary mx-2 buttons" onClick={handleClrClick}>Clear</button>
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>Your text summary</h1>

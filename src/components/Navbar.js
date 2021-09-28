@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+// import { a } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -7,7 +8,7 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="#">
           {props.title}
         </a>
         <button
@@ -24,16 +25,28 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <a className="nav-a active" aria-current="page" href="#">
                 {props.home}
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-a" href="#">
                 {props.aboutText}
               </a>
             </li>
           </ul>
+          <div className={`form-check form-switch mx-5 text-${props.mode==='light'?'dark':'light'}`}> 
+                {/* // to change the color of text */}
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="blueBtn"
+              onClick={props.funcRedBtn}
+            />
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+              Red Mode
+            </label>
+          </div>
           <div className={`form-check form-switch mx-5 text-${props.mode==='light'?'dark':'light'}`}> 
                 {/* // to change the color of text */}
             <input
