@@ -3,6 +3,7 @@ import React, {useState} from "react";
 
 
 export default function TextForm(props) {
+
     const handleUpClick = ()=>{
         let newText = text.toUpperCase();
         setText(newText)
@@ -24,6 +25,13 @@ export default function TextForm(props) {
     const handleOnChange = (event)=>{  // this function let you to change the value of text area
         setText(event.target.value);
     }
+    const handleCopyClick = ()=>{  
+        var text = document.getElementById('txtArea');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges();
+        
+    }
     
 
   const [text, setText] = useState('Enter text here');
@@ -43,15 +51,16 @@ export default function TextForm(props) {
           rows="8"
         ></textarea>
       </div>
-      <button className="btn btn-primary buttons" onClick={handleUpClick}>ConvertToUppercase</button>
-      <button className="btn btn-primary mx-2 buttons" onClick={handleLowClick}>ConvertToLowercase</button>
-      <button className="btn btn-primary mx-2 buttons" onClick={handleTitClick}>Title Case</button>
-      <button className="btn btn-primary mx-2 buttons" onClick={handleClrClick}>Clear</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleUpClick}>ConvertToUppercase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleLowClick}>ConvertToLowercase</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleTitClick}>Title Case</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleClrClick}>Clear</button>
+      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleCopyClick}>Copy</button>
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>Your text summary</h1>
-        <p>{text.split(" ").length} words, {text.length} characters</p>
-        <p>{0.008 * text.split(" ").length} Minutes will required to read</p>
+        <p>{text.split(" ").filter((elem)=>{return elem.length!==0}).length} words, {text.length} characters</p>
+        <p>{0.008 * text.split(" ").filter((elem)=>{return elem.length!==0}).length} Minutes will required to read</p>
         <h5>{text}</h5>
     </div>
     </>

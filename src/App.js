@@ -11,7 +11,6 @@ import Alert from './components/Alert';
 //   // Link
 // } from "react-router-dom";
 
-// import About from "./components/About";
 function App() {
   const [mode, setMode] = useState('light'); // whether dark mode is enabled or not
   const [alert, setAlert] = useState(null);
