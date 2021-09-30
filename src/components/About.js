@@ -29,7 +29,7 @@ export default function About(props) {
                 id="toWork"
                 style={{color: props.mode==='dark'?'white':'black', backgroundColor: props.mode==='dark'?'black':'white'}}
               >
-                Accordion Item #1
+                Accordion Item #1 here 
               </button>
             </h2>
             <div
