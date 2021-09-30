@@ -26,9 +26,7 @@ export default function TextForm(props) {
         setText(event.target.value);
     }
     const handleCopyClick = ()=>{  
-        var text = document.getElementById('txtArea');
-        text.select();
-        navigator.clipboard.writeText(text.value);
+        navigator.clipboard.writeText(text);
         document.getSelection().removeAllRanges();
         
     }
@@ -61,7 +59,7 @@ export default function TextForm(props) {
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>Your text summary</h1>
-        <p>{text.split(" ").filter((elem)=>{return elem.length!==0}).length} words, {text.length} characters</p>
+        <p>{text.split(/\s+/).filter((elem)=>{return elem.length!==0}).length} words, {text.length} characters</p>
         <p>{0.008 * text.split(" ").filter((elem)=>{return elem.length!==0}).length} Minutes will required to read</p>
         <h5>{text}</h5>
     </div>
