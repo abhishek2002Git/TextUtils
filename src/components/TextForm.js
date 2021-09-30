@@ -35,12 +35,13 @@ export default function TextForm(props) {
     
 
   const [text, setText] = useState('Enter text here');
-    // 'text' is a static variable whose default value is 'Enter text here' , 'setText' is a function which lets you to change the value of 'text'  
+    // 'text' is a state variable whose default value is 'Enter text here' , 'setText' is a function which lets you to change the value of 'text'  
 
 
   return (
     <>  
     <div style={{color: props.mode==='dark'?'white':'black'}} >
+      {/* ^ to changle the color of h1 */}
        <h1>{props.heading}</h1> 
       <div className="mb-3">
         <textarea
@@ -49,13 +50,14 @@ export default function TextForm(props) {
           onChange = {handleOnChange} // 'handleOnChange()' will be called when value of textarea will be changed
           id="txtArea"
           rows="8"
+          style={{color: props.mode==='dark'?'white':'black', backgroundColor: props.mode==='dark'?'black':'white'}}
         ></textarea>
       </div>
-      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleUpClick}>ConvertToUppercase</button>
-      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleLowClick}>ConvertToLowercase</button>
-      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleTitClick}>Title Case</button>
-      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleClrClick}>Clear</button>
-      <button disabled={text.length===0} className="btn btn-primary mx-2 my-1 buttons" onClick={handleCopyClick}>Copy</button>
+      <button disabled={text.length===0} style={{color: 'white', backgroundColor: props.mode==='dark'?'black':'blue', border: '2px solid white'}}  className="btn btn-primary mx-2 my-1 buttons" onClick={handleUpClick}>ConvertToUppercase</button>
+      <button disabled={text.length===0} style={{color: 'white', backgroundColor: props.mode==='dark'?'black':'blue', border: '2px solid white'}}  className="btn btn-primary mx-2 my-1 buttons" onClick={handleLowClick}>ConvertToLowercase</button>
+      <button disabled={text.length===0} style={{color: 'white', backgroundColor: props.mode==='dark'?'black':'blue', border: '2px solid white'}}  className="btn btn-primary mx-2 my-1 buttons" onClick={handleTitClick}>Title Case</button>
+      <button disabled={text.length===0} style={{color: 'white', backgroundColor: props.mode==='dark'?'black':'blue', border: '2px solid white'}}  className="btn btn-primary mx-2 my-1 buttons" onClick={handleClrClick}>Clear</button>
+      <button disabled={text.length===0} style={{color: 'white', backgroundColor: props.mode==='dark'?'black':'blue', border: '2px solid white'}}  className="btn btn-primary mx-2 my-1 buttons" onClick={handleCopyClick}>Copy</button>
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>Your text summary</h1>

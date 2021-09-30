@@ -2,7 +2,8 @@ import React from "react";
 
 export default function Alert(props) {
   return (
-    <div style={{height: '40px'}}>  
+    <div style={{height: '40px'}}>
+      {/* ^ to prevent layout shifting */}
      { props.alert && 
     <div>
       <div

@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import { a } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+      // ^ this is how navbar's color is changing
     >
       <div className={`container-fluid text-${props.mode==='light'?'dark':'light'}`}>
-        {/* <a className="navbar-brand" href="#"> */}
+        <Link  className="navbar-brand" to="/">
           {props.title}
-        {/* </a> */}
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,28 +26,16 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              {/* <a className="nav-a active" aria-current="page" href="#"> */}
-                {/* {props.home} */}
-              {/* </a> */}
+              <Link style={{color: props.mode==='dark'?'white':'black', textDecoration: 'none'}} className="nav-a active" aria-current="page" to="/">
+                {props.home}
+              </Link>
             </li>
-            <li className="nav-item">
-              {/* <a className="nav-a" href="#"> */}
-                {/* {props.aboutText} */}
-              {/* </a> */}
+            <li className="nav-item mx-3">
+              <Link style={{color: props.mode==='dark'?'white':'black', textDecoration: 'none'}} className="nav-a" to="/about">
+                {props.aboutText}
+              </Link>
             </li>
           </ul>
-          <div className={`form-check form-switch mx-5 text-${props.mode==='light'?'dark':'light'}`}> 
-                {/* // to change the color of text */}
-            <input
-              className="form-check-input"
-              type="checkbox"
-              id="blueBtn"
-              onClick={props.funcRedBtn}
-            />
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-              Red Mode
-            </label>
-          </div>
           <div className={`form-check form-switch mx-5 text-${props.mode==='light'?'dark':'light'}`}> 
                 {/* // to change the color of text */}
             <input
